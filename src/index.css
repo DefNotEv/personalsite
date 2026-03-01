@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Acropolis';
+  src: url('/fonts/acropolis-htf.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LilitaOne';
+  src: url('/fonts/lilitaone-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow: hidden;
+  min-height: 100vh;
+}

@@ -1,0 +1,2585 @@
+.portfolio {
+  --portfolio-top-bar-h: 6vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1A73E8;
+  color: #e2e8f0;
+  font-family: system-ui, sans-serif;
+}
+
+.portfolio-bottom-bar {
+  height: 9vh;
+  min-height: 48px;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: max(8vw, 10rem);
+  padding: 0 2rem;
+}
+
+.portfolio-bottom-nav-btn {
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: max(20px, 3.5vh);
+  font-weight: 400;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.4em 0.6em;
+  letter-spacing: 0.04em;
+  -webkit-text-stroke: 5px #000;
+  paint-order: stroke fill;
+  transition: color 0.2s ease, font-size 0.2s ease;
+}
+
+.portfolio-bottom-nav-btn:hover {
+  color: #f5e6a3;
+}
+
+.portfolio-bottom-nav-btn--active {
+  color: #E4A700;
+  font-size: max(28px, 5vh);
+}
+
+.portfolio-top-bar {
+  height: 6vh;
+  min-height: 48px;
+  background: #000;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-left: 0;
+  overflow: visible;
+}
+
+/* Name on the left, vertically centered with the parallelograms */
+.portfolio-bar-name {
+  align-self: flex-end;
+  transform: translateY(50%);
+  margin: 0;
+  padding-left: max(0.8vw, 1vw);
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: max(22px, 3.2vh);
+  font-weight: 400;
+  color: #fff;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+  -webkit-text-stroke: 5px #000;
+  paint-order: stroke fill;
+}
+
+/* Group parallelograms + headshot on the right */
+.portfolio-top-bar-right {
+  display: flex;
+  align-items: flex-end;
+  gap: max(0.8vw, 1.2vw);
+  margin-left: auto;
+  align-self: stretch;
+}
+
+/* Four small parallelograms to the left of the right one: black, no rounded corners, on the bar/background line, circle on left */
+.portfolio-bar-parallelograms {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: max(2vw, 3vw);
+  align-self: flex-end;
+  transform: translateY(50%);
+  margin-right: max(4px, 0.5vw);
+}
+
+.portfolio-bar-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.portfolio-bar-icon:hover {
+  filter: brightness(1.15);
+}
+
+.portfolio-bar-icon-shape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  width: max(80px, 9vw);
+  height: max(36px, 4vh);
+  padding-left: max(24px, 2.75vh);
+  background: #000;
+  transform: skewX(-5deg);
+  border-radius: 0;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: max(12px, 1.7vh);
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  box-sizing: border-box;
+}
+
+.portfolio-bar-icon-shape > * {
+  transform: skewX(5deg);
+}
+
+.portfolio-bar-icon-circle {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(48px, 5.5vh);
+  height: max(48px, 5.5vh);
+  border-radius: 50%;
+  border: 2px solid #000;
+  background: #fff;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* LinkedIn: blue circle, white "in" icon */
+.portfolio-bar-icon-circle--linkedin {
+  background: #0A66C2;
+  color: #fff;
+}
+
+/* X: white circle, black icon (default) */
+.portfolio-bar-icon-circle--x {
+  background: #fff;
+  color: #000;
+}
+
+/* Instagram: gradient circle, white outline icon */
+.portfolio-bar-icon-circle--instagram {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+}
+
+/* GitHub: white circle, black icon (default) */
+.portfolio-bar-icon-circle--github {
+  background: #fff;
+  color: #000;
+}
+
+.portfolio-bar-icon-svg {
+  width: 55%;
+  height: 55%;
+}
+
+.portfolio-bar-icon-circle--github .portfolio-bar-icon-svg {
+  width: 75%;
+  height: 75%;
+}
+
+.portfolio-bar-icon-svg--outline {
+  width: 58%;
+  height: 58%;
+}
+
+.portfolio-back-button-mirror-wrap {
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+/* Parallelogram shape via skew; icon counter-skewed so chevron stays upright */
+.portfolio-back-button {
+  position: relative;
+  width: max(70px, 10vw);
+  height: max(60px, 10vh);
+  margin-top: 1vh;
+  margin-left: -0.4vw;
+  padding: 0;
+  padding-bottom: 0.15em;
+  background: #333645;
+  border: 4px solid #000;
+  border-left: none;
+  border-radius: 0 max(5px, 0.75vw) max(5px, 0.75vw) 0;
+  color: #FFFFFF;
+  font-size: max(28px, 4.5vw);
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: skewX(-5deg);
+  transform-origin: center center;
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+.portfolio-back-button-icon {
+  display: inline-block;
+  transform: skewX(5deg);
+}
+
+.portfolio-back-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12%;
+  min-height: 6px;
+  background: #282A36;
+  border-radius: 0 0 max(4px, 0.6vw) 0;
+}
+
+.portfolio-back-button:hover {
+  filter: brightness(1.1);
+}
+
+.portfolio-back-button:active {
+  transform: skewX(8deg);
+}
+
+/* Mirrored duplicate on the right — decorative only, not clickable */
+.portfolio-back-button-mirror {
+  container-type: size;
+  transform: skewX(-5deg);
+  margin-left: 0;
+  margin-right: -0.4vw;
+  border-left: 4px solid #000;
+  border-right: none;
+  border-radius: max(5px, 0.75vw) 0 0 max(5px, 0.75vw);
+  cursor: default;
+  pointer-events: none;
+}
+
+.portfolio-back-button-mirror::after {
+  border-radius: max(4px, 0.6vw) 0 0 0;
+}
+
+
+.portfolio-header {
+  padding: 6.4vh 3.2vw 4.8vh;
+  text-align: left;
+}
+
+.portfolio-header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.4vw;
+}
+
+.portfolio-header h1 {
+  font-size: 4vh;
+  font-weight: 700;
+  margin-bottom: 0.8vh;
+  letter-spacing: -0.02em;
+}
+
+.portfolio-header p {
+  font-size: 1.8vh;
+  color: #94a3b8;
+}
+
+.portfolio-main {
+  flex: 1;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  /* auto = snappier scroll; smooth causes lag with many transformed elements */
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* Clear the top bar’s big parallelograms (back button/headshot): 1vh margin + 10vh height below 6vh bar */
+  padding: 11vh 0 6.4vh;
+  width: 100%;
+}
+
+.portfolio-main::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio-parallelograms-track {
+  display: flex;
+  align-items: center;
+  gap: max(2.4vw, 4vw);
+  padding: 0 3.2vw 0 8vw;
+  margin-left: auto;
+  margin-right: auto;
+  /* Promote to own layer so scroll mostly moves a texture instead of repainting */
+  transform: translateZ(0);
+}
+
+/* Big parallelogram centered between bottom of top parallelograms and top of bottom bar */
+.portfolio-center-parallelogram {
+  width: min(85vw, 520px);
+  height: min(88vh, 560px);
+  max-height: calc(100vh - 6vh - 11vh - 9vh - 6.4vh);
+  background: #c41e3a;
+  border: 2px solid #000;
+  border-bottom-width: 5px;
+  border-radius: 6px;
+  transform: skewX(-5deg);
+  flex-shrink: 0;
+  contain: layout;
+  content-visibility: auto;
+}
+
+/* First parallelogram: same height as other parallelograms */
+.portfolio-center-parallelogram--first {
+  --contact-bar-height: clamp(3.6vh, 8vh, 7.2vh);
+  width: min(96vw, 700px);
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-center-parallelogram--first::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  height: var(--contact-bar-height);
+  background: #ED4949;
+  border-radius: 6px 6px 0 0;
+}
+
+.portfolio-parallelogram-bar-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: var(--contact-bar-height);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: clamp(20px, 3vh, 34px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.07em;
+  -webkit-text-stroke: 4px #000;
+  paint-order: stroke fill;
+  transform: skewX(5deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.portfolio-first-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  transform: skewX(5deg);
+  padding: calc(var(--contact-bar-height) + 1.2vh) max(2vw, 2.5vw) 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: max(1vw, 1.5vw);
+  container-type: size;
+  container-name: first-inner;
+}
+
+.portfolio-first-text {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  padding-right: 0.5em;
+  padding-bottom: 1.2vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: skewX(-5deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 400;
+}
+
+/* Scale with container height so text fills the area (cqh = % of first-inner height) */
+.portfolio-first-intro,
+.portfolio-first-body {
+  margin: 0 0 0.5em;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: clamp(11px, 3.2cqh, 28px);
+  line-height: 1.4;
+  color: #fff;
+  -webkit-text-stroke: 1.5px #000;
+  paint-order: stroke fill;
+}
+
+.portfolio-first-list {
+  margin: 0.4em 0 0;
+  padding-left: 1.2em;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: clamp(10px, 2.6cqh, 22px);
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  -webkit-text-stroke: 1.5px #000;
+  paint-order: stroke fill;
+}
+
+.portfolio-first-list li {
+  margin-bottom: 0.25em;
+}
+
+.portfolio-first-image-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 45%;
+  max-width: 45%;
+  height: 100%;
+  overflow: hidden;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.portfolio-first-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: right center;
+  display: block;
+  backface-visibility: hidden;
+}
+
+.portfolio-first-image.portfolio-first-carousel-image {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  animation: portfolio-rotate-images-narrow 16s infinite;
+  transform-origin: center center;
+}
+
+/* ========== Project parallelograms (responsive, match first/contact cards) ========== */
+
+/* Parallelogram section container — not used when projects live in portfolio-parallelograms-track */
+.parallelogram-section {
+  display: flex;
+  justify-content: flex-start;
+  gap: max(2.4vw, 4vw);
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  position: relative;
+  min-height: 0;
+}
+
+.parallelogram-section::-webkit-scrollbar {
+  display: none;
+}
+
+/* Base parallelogram (legacy; #projects overrides below) */
+.parallelogram {
+  width: 1000px;
+  height: 610px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: skewX(-5deg);
+  border-radius: 5px;
+  overflow: visible;
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* Projects wrapper: same gap as track, no fixed min-height */
+.parallelogram#projects {
+  width: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: max(2.4vw, 4vw);
+  transform: none;
+  overflow: visible;
+  height: auto;
+  min-height: 0;
+  flex-shrink: 0;
+}
+
+.parallelogram#projects .parallelogram.project {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+/* Base project card — narrow (like original 300px), responsive, fixed aspect ratio */
+.parallelogram.project {
+  --project-bar-h: clamp(3.6vh, 8vh, 7.2vh);
+  --project-bottom-bar-h: clamp(4.5vh, 10vh, 9vh);
+  width: min(42vw, 260px);
+  aspect-ratio: 260 / 560;
+  height: auto;
+  max-height: min(88vh, calc(100vh - 6vh - 11vh - 9vh - 6.4vh));
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: skewX(-5deg);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid #000;
+  border-bottom-width: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  position: relative;
+  margin-bottom: 0;
+  contain: layout;
+  content-visibility: auto;
+  container-type: size;
+  container-name: project;
+}
+
+/* Project 1 */
+.parallelogram.project#project1 {
+  background: linear-gradient(135deg,
+    #1a0b2e 0%,
+    #2d1b4e 25%,
+    #3d2b6e 50%,
+    #2d1b4e 75%,
+    #1a0b2e 100%
+  );
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project1 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #1a0b2e;
+  z-index: 1;
+}
+
+.parallelogram.project#project1 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #1a0b2e;
+  z-index: 2;
+}
+
+.parallelogram.project#project1 .title-image {
+  width: 220px;
+  height: auto;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.5));
+}
+
+.parallelogram.project#project1 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.parallelogram.project#project1 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallelogram.project#project1 .project-link {
+  display: inline-block;
+  color: #ff69b4;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #00ffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: rgba(255, 105, 180, 0.1);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.parallelogram.project#project1 .project-link:hover {
+  background-color: #ff69b4;
+  color: #1a0b2e;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+.parallelogram.project#project1 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #ff69b4;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project1 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #ff69b4;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Project 2 */
+.parallelogram.project#project2 {
+  background: linear-gradient(135deg,
+    #32CD32 0%,
+    #7CFC00 25%,
+    #90EE90 50%,
+    #7CFC00 75%,
+    #32CD32 100%
+  );
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project2 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #32CD32;
+  z-index: 1;
+}
+
+.parallelogram.project#project2 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #32CD32;
+  z-index: 2;
+}
+
+.parallelogram.project#project2 .title-image {
+  width: 220px;
+  height: auto;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.parallelogram.project#project2 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 30px;
+  gap: 15px;
+  z-index: 2;
+}
+
+.parallelogram.project#project2 .title-beaver {
+  width: 50px;
+  height: 50px;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.parallelogram.project#project2 .title-text {
+  color: #000000;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0;
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+  transform: skewX(5deg);
+  letter-spacing: 1px;
+}
+
+.parallelogram.project#project2 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallelogram.project#project2 .project-link {
+  display: inline-block;
+  color: #000000;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #000000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.1);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.parallelogram.project#project2 .project-link:hover {
+  background-color: #000000;
+  color: #32CD32;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.parallelogram.project#project2 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #000000;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project2 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #000000;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Project 3 */
+.parallelogram.project#project3 {
+  background: linear-gradient(135deg,
+    #1a1a2e 0%,
+    #2a2a3e 25%,
+    #333344 50%,
+    #2a2a3e 75%,
+    #1a1a2e 100%
+  );
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project3 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #1a1a2e;
+  z-index: 1;
+}
+
+.parallelogram.project#project3 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #1a1a2e;
+  z-index: 2;
+}
+
+.parallelogram.project#project3 .title-image {
+  width: 180px;
+  height: auto;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.parallelogram.project#project3 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.parallelogram.project#project3 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallelogram.project#project3 .project-link {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.parallelogram.project#project3 .project-link:hover {
+  background-color: #ffffff;
+  color: #1a1a2e;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.parallelogram.project#project3 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project3 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project3 .image-carousel {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 330px;
+  z-index: 0;
+}
+
+.parallelogram.project#project3 .carousel-image {
+  display: none;
+}
+
+.parallelogram.project#project3 .frc-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+/* Project 4 */
+.parallelogram.project#project4 {
+  background: linear-gradient(135deg,
+    #000033 0%,
+    #000066 25%,
+    #000099 50%,
+    #000066 75%,
+    #000033 100%
+  );
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project4 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #000033;
+  z-index: 1;
+}
+
+.parallelogram.project#project4 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #000033;
+  z-index: 2;
+}
+
+.parallelogram.project#project4 .title-image {
+  width: 220px;
+  height: auto;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.parallelogram.project#project4 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.parallelogram.project#project4 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallelogram.project#project4 .project-link {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.parallelogram.project#project4 .project-link:hover {
+  background-color: #ffffff;
+  color: #000033;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.parallelogram.project#project4 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project4 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project4 .title-text {
+  color: #ffffff;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    0px 3px 0 #000,
+    0px 4px 0 #000;
+  transform: skewX(5deg);
+  letter-spacing: 1px;
+}
+
+.parallelogram.project#project4 .image-container {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 330px;
+  z-index: 0;
+}
+
+.parallelogram.project#project4 .vrc-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  animation: portfolio-project-pulse 2s ease-in-out infinite;
+}
+
+/* Project 5 */
+.parallelogram.project#project5 {
+  background: linear-gradient(135deg,
+    #00008B 0%,
+    #0000CC 25%,
+    #0000FF 50%,
+    #0000CC 75%,
+    #00008B 100%
+  );
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project5 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #FF0000;
+  z-index: 1;
+}
+
+.parallelogram.project#project5 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #FF0000;
+  z-index: 2;
+}
+
+.parallelogram.project#project5 .title-image {
+  width: 180px;
+  height: auto;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 255, 0.5));
+}
+
+.parallelogram.project#project5 .project-title {
+  position: absolute;
+  top: -7px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.parallelogram.project#project5 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallelogram.project#project5 .project-link {
+  display: inline-block;
+  color: #000000;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #000000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.1);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.parallelogram.project#project5 .project-link:hover {
+  background-color: #000000;
+  color: #00008B;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.parallelogram.project#project5 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #000000;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project5 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #000000;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project5 .image-carousel {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 330px;
+  z-index: 0;
+}
+
+.parallelogram.project#project5 .carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  animation: portfolio-rotate-images 24s infinite, portfolio-project-pulse 2s ease-in-out infinite;
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+.parallelogram.project#project5 .carousel-image:nth-child(1) { animation-delay: 0s; }
+.parallelogram.project#project5 .carousel-image:nth-child(2) { animation-delay: 4s; }
+.parallelogram.project#project5 .carousel-image:nth-child(3) { animation-delay: 8s; }
+.parallelogram.project#project5 .carousel-image:nth-child(4) { animation-delay: 12s; }
+.parallelogram.project#project5 .carousel-image:nth-child(5) { animation-delay: 16s; }
+.parallelogram.project#project5 .carousel-image:nth-child(6) { animation-delay: 20s; }
+.parallelogram.project#project5 .carousel-image:nth-child(7) { animation-delay: 24s; }
+
+.parallelogram.project#project5 .frc-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  animation: portfolio-project-pulse 2s ease-in-out infinite;
+}
+
+/* Project 6 */
+.parallelogram.project#project6 {
+  background: linear-gradient(135deg,
+    #039b93 0%,
+    #02b3a9 25%,
+    #01c9bf 50%,
+    #02b3a9 75%,
+    #039b93 100%
+  );
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project6 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #ece2e2;
+  z-index: 1;
+}
+
+.parallelogram.project#project6 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #ece2e2;
+  z-index: 2;
+}
+
+.parallelogram.project#project6 .title-text {
+  display: none;
+}
+
+.parallelogram.project#project6 .title-image {
+  width: 220px;
+  height: auto;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.parallelogram.project#project6 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.parallelogram.project#project6 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.parallelogram.project#project6 .project-link {
+  display: inline-block;
+  color: #e83a34;
+  text-decoration: none;
+  font-size: 14px;
+  border: 2px solid #e83a34;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+  white-space: nowrap;
+  width: 140px;
+}
+
+.parallelogram.project#project6 .project-link:hover {
+  background-color: #e83a34;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.parallelogram.project#project6 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project6 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project6 .image-carousel {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 330px;
+  z-index: 0;
+}
+
+.parallelogram.project#project6 .carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  animation: portfolio-rotate-images 24s infinite, portfolio-project-pulse 2s ease-in-out infinite;
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+.parallelogram.project#project6 .carousel-image:nth-child(1) { animation-delay: 0s; }
+.parallelogram.project#project6 .carousel-image:nth-child(2) { animation-delay: 4s; }
+.parallelogram.project#project6 .carousel-image:nth-child(3) { animation-delay: 8s; }
+.parallelogram.project#project6 .carousel-image:nth-child(4) { animation-delay: 12s; }
+.parallelogram.project#project6 .carousel-image:nth-child(5) { animation-delay: 16s; }
+.parallelogram.project#project6 .carousel-image:nth-child(6) { animation-delay: 20s; }
+.parallelogram.project#project6 .carousel-image:nth-child(7) { animation-delay: 24s; }
+
+/* Project 7 */
+.parallelogram.project#project7 {
+  background: transparent;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project7 .hope-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/hope.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.parallelogram.project#project7 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: rgba(230, 157, 26, 0.8);
+  z-index: 1;
+}
+
+.parallelogram.project#project7 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: rgba(230, 157, 26, 0.8);
+  z-index: 2;
+}
+
+.parallelogram.project#project7 .title-image {
+  width: 220px;
+  height: auto;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.parallelogram.project#project7 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 0 20px;
+  gap: 5px;
+}
+
+.parallelogram.project#project7 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallelogram.project#project7 .project-link {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.parallelogram.project#project7 .project-link:hover {
+  background-color: #ffffff;
+  color: #37393c;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.parallelogram.project#project7 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project7 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project7 .image-carousel {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 330px;
+  z-index: 0;
+}
+
+.parallelogram.project#project7 .carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  animation: portfolio-rotate-images 24s infinite, portfolio-project-pulse 2s ease-in-out infinite;
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+.parallelogram.project#project7 .carousel-image:nth-child(1) { animation-delay: 0s; }
+.parallelogram.project#project7 .carousel-image:nth-child(2) { animation-delay: 4s; }
+.parallelogram.project#project7 .carousel-image:nth-child(3) { animation-delay: 8s; }
+.parallelogram.project#project7 .carousel-image:nth-child(4) { animation-delay: 12s; }
+.parallelogram.project#project7 .carousel-image:nth-child(5) { animation-delay: 16s; }
+.parallelogram.project#project7 .carousel-image:nth-child(6) { animation-delay: 20s; }
+.parallelogram.project#project7 .carousel-image:nth-child(7) { animation-delay: 24s; }
+
+.parallelogram.project#project7 .title-text {
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  transform: skewX(5deg);
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0 20px;
+}
+
+.parallelogram.project#project7 .title-logo {
+  width: 35px;
+  height: 35px;
+  margin-left: 20px;
+  transform: skewX(5deg);
+}
+
+/* Project 8 */
+.parallelogram.project#project8 {
+  background: linear-gradient(135deg,
+    #f3ffbf 0%,
+    #f5ffc8 25%,
+    #f7ffd1 50%,
+    #f5ffc8 75%,
+    #f3ffbf 100%
+  );
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project8 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #bff3ff;
+  z-index: 1;
+}
+
+.parallelogram.project#project8 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #bff3ff;
+  z-index: 2;
+}
+
+.parallelogram.project#project8 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 0 20px;
+  gap: 10px;
+}
+
+.parallelogram.project#project8 .title-text {
+  color: #005e73;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 550;
+  margin: 0;
+  transform: skewX(5deg);
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0 20px;
+}
+
+.parallelogram.project#project8 .title-controller {
+  width: 40px;
+  margin-right: -10px;
+}
+
+.parallelogram.project#project8 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallelogram.project#project8 .project-link {
+  display: inline-block;
+  color: #005e73;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px solid #005e73;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: rgba(0, 94, 115, 0.1);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.parallelogram.project#project8 .project-link:hover {
+  background-color: #005e73;
+  color: #bff3ff;
+  box-shadow: 0 0 20px rgba(0, 94, 115, 0.5);
+}
+
+.parallelogram.project#project8 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #005e73;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project8 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #005e73;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project8 .image-carousel {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 330px;
+  z-index: 0;
+}
+
+.parallelogram.project#project8 .carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  animation: portfolio-rotate-images 24s infinite, portfolio-project-pulse 2s ease-in-out infinite;
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+.parallelogram.project#project8 .carousel-image:nth-child(1) { animation-delay: 0s; }
+.parallelogram.project#project8 .carousel-image:nth-child(2) { animation-delay: 4s; }
+.parallelogram.project#project8 .carousel-image:nth-child(3) { animation-delay: 8s; }
+.parallelogram.project#project8 .carousel-image:nth-child(4) { animation-delay: 12s; }
+.parallelogram.project#project8 .carousel-image:nth-child(5) { animation-delay: 16s; }
+.parallelogram.project#project8 .carousel-image:nth-child(6) { animation-delay: 20s; }
+.parallelogram.project#project8 .carousel-image:nth-child(7) { animation-delay: 24s; }
+
+.parallelogram.project#project8 .spotify-embed {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 330px;
+  z-index: 0;
+}
+
+.parallelogram.project#project8 .spotify-embed iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+/* Project 9 */
+.parallelogram.project#project9 {
+  background: linear-gradient(135deg,
+    #4a148c 0%,
+    #6a1b9a 25%,
+    #7b1fa2 50%,
+    #8e24aa 75%,
+    #9c27b0 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 6px solid rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.parallelogram.project#project9 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg,
+    #9c27b0 0%,
+    #ba68c8 50%,
+    #ce93d8 100%);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.parallelogram.project#project9 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg,
+    #6a1b9a 0%,
+    #7b1fa2 50%,
+    #8e24aa 100%);
+  border-top: 2px solid rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.parallelogram.project#project9 .title-image {
+  width: 220px;
+  height: auto;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+}
+
+.parallelogram.project#project9 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: skewX(-20deg);
+  z-index: 2;
+}
+
+.parallelogram.project#project9 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: skewX(-20deg);
+  z-index: 2;
+}
+
+.parallelogram.project#project9 .project-link {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: rgba(156, 39, 176, 0.8);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transform: skewX(5deg);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.parallelogram.project#project9 .project-link:hover {
+  background-color: #ffffff;
+  color: #9c27b0;
+  box-shadow: 0 0 25px rgba(156, 39, 176, 0.6);
+  transform: skewX(5deg) scale(1.05);
+}
+
+.parallelogram.project#project9 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #ffffff;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transform: skewX(-20deg);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+.parallelogram.project#project9 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #e1bee7;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transform: skewX(-20deg);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+.parallelogram.project#project9 .carousel-image:nth-child(1) { animation-delay: 0s; }
+.parallelogram.project#project9 .carousel-image:nth-child(2) { animation-delay: 4s; }
+.parallelogram.project#project9 .carousel-image:nth-child(3) { animation-delay: 8s; }
+.parallelogram.project#project9 .carousel-image:nth-child(4) { animation-delay: 12s; }
+.parallelogram.project#project9 .carousel-image:nth-child(5) { animation-delay: 16s; }
+.parallelogram.project#project9 .carousel-image:nth-child(6) { animation-delay: 20s; }
+.parallelogram.project#project9 .carousel-image:nth-child(7) { animation-delay: 24s; }
+
+/* General project carousel and keyframes */
+.parallelogram.project .image-carousel {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 330px;
+  z-index: 0;
+  perspective: 1000px;
+}
+
+.parallelogram.project .carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  animation: portfolio-rotate-images 24s infinite;
+  transform-origin: center center;
+  backface-visibility: hidden;
+}
+
+.parallelogram.project .carousel-image:nth-child(1) { animation-delay: 0s; }
+.parallelogram.project .carousel-image:nth-child(2) { animation-delay: 4s; }
+.parallelogram.project .carousel-image:nth-child(3) { animation-delay: 8s; }
+.parallelogram.project .carousel-image:nth-child(4) { animation-delay: 12s; }
+.parallelogram.project .carousel-image:nth-child(5) { animation-delay: 16s; }
+.parallelogram.project .carousel-image:nth-child(6) { animation-delay: 20s; }
+.parallelogram.project .carousel-image:nth-child(7) { animation-delay: 24s; }
+
+@keyframes portfolio-rotate-images {
+  0% {
+    opacity: 0;
+    transform: translateX(150px) rotateY(-90deg);
+  }
+  5%, 10% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+  15% {
+    opacity: 0;
+    transform: translateX(-150px) rotateY(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-150px) rotateY(90deg);
+  }
+}
+
+/* Narrower flip for first parallelogram — exit and enter overlap so they flip in sync */
+@keyframes portfolio-rotate-images-narrow {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) rotateY(-45deg);
+  }
+  10%, 20% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+  30% {
+    opacity: 0;
+    transform: translateX(-60px) rotateY(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-60px) rotateY(45deg);
+  }
+}
+
+@keyframes portfolio-project-pulse {
+  0% {
+    transform: skewX(5deg) scale(1);
+  }
+  50% {
+    transform: skewX(5deg) scale(1.05);
+  }
+  100% {
+    transform: skewX(5deg) scale(1);
+  }
+}
+
+/* Reduce animation load when user prefers reduced motion (helps scroll perf too) */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-first-image.portfolio-first-carousel-image {
+    animation: none !important;
+    opacity: 0;
+  }
+  .portfolio-first-image-wrap .portfolio-first-carousel-image:first-child {
+    opacity: 1;
+  }
+  .portfolio-parallelograms-track .parallelogram.project .carousel-image,
+  .portfolio-parallelograms-track .parallelogram.project .vrc-image,
+  .portfolio-parallelograms-track .parallelogram.project .frc-image {
+    animation: none !important;
+  }
+}
+
+/* All project card text: LilitaOne (matches @font-face in index.css) */
+.portfolio-parallelograms-track .parallelogram.project .organizer-text,
+.portfolio-parallelograms-track .parallelogram.project .subtitle-text,
+.portfolio-parallelograms-track .parallelogram.project .title-text,
+.portfolio-parallelograms-track .parallelogram.project .project-link {
+  font-family: 'LilitaOne', system-ui, sans-serif !important;
+}
+
+/* Responsive overrides: desktop uses vh/clamp; mobile uses container units (see @media max-width: 850px) */
+.portfolio-parallelograms-track .parallelogram.project .top-bar,
+.portfolio-parallelograms-track .parallelogram.project .project-title {
+  height: var(--project-bar-h) !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .bottom-bar {
+  height: var(--project-bottom-bar-h) !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .organizer-text {
+  top: calc(var(--project-bar-h) + 1.5vh) !important;
+  right: max(2vw, 12px) !important;
+  font-size: clamp(12px, 2.2vh, 20px) !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .subtitle-text {
+  top: calc(var(--project-bar-h) + 4vh) !important;
+  right: max(2vw, 12px) !important;
+  font-size: clamp(10px, 1.8vh, 16px) !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .title-image {
+  width: min(55%, 220px) !important;
+  max-width: 220px;
+  height: auto;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .title-beaver {
+  width: min(50px, 12vw) !important;
+  height: auto;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .title-logo {
+  width: min(35px, 8vw) !important;
+  height: auto;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .title-controller {
+  width: min(40px, 10vw) !important;
+  height: auto;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .title-text {
+  font-size: clamp(14px, 2.5vh, 28px) !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project#project2 .project-title {
+  justify-content: center !important;
+  padding-right: 0 !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project#project2 .title-text {
+  white-space: nowrap !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project#project5 .project-title {
+  justify-content: center !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project#project7 .project-title {
+  justify-content: center !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .image-carousel,
+.portfolio-parallelograms-track .parallelogram.project .image-container {
+  width: min(75%, 230px) !important;
+  height: min(50vh, 330px) !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .spotify-embed {
+  width: min(75%, 230px) !important;
+  height: min(45vh, 330px) !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .spotify-embed iframe {
+  height: 100%;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .project-content {
+  height: var(--project-bottom-bar-h) !important;
+}
+
+/* Project 6: center text + website embed + two buttons in row */
+.portfolio-parallelograms-track .parallelogram.project#project6 .organizer-text {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) skewX(5deg) !important;
+  text-align: center !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project#project6 .website-embed {
+  position: absolute;
+  top: var(--project-bar-h);
+  left: 0;
+  right: 0;
+  bottom: var(--project-bottom-bar-h);
+  z-index: 0;
+  overflow: hidden;
+  border: none;
+}
+
+.portfolio-parallelograms-track .parallelogram.project#project6 .website-embed-iframe,
+.portfolio-parallelograms-track .parallelogram.project#project6 .website-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.portfolio-parallelograms-track .parallelogram.project#project6 .project-content {
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: clamp(0.05vw, 0.1vh, 0.05vw) !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project#project6 .project-link {
+  font-size: clamp(9px, 1.5vh, 14px) !important;
+  padding: clamp(4px, 0.8vh, 6px) clamp(8px, 2vw, 12px) !important;
+  width: auto !important;
+  min-width: 0 !important;
+}
+
+.portfolio-parallelograms-track .parallelogram.project .project-link {
+  font-size: clamp(11px, 1.8vh, 20px) !important;
+  padding: clamp(6px, 1.2vh, 10px) clamp(12px, 2.5vw, 20px) !important;
+}
+
+/* Project 9 has thin bars — keep proportional */
+.portfolio-parallelograms-track .parallelogram.project#project9 .top-bar,
+.portfolio-parallelograms-track .parallelogram.project#project9 .bottom-bar {
+  height: clamp(2px, 1.5vh, 8px) !important;
+}
+
+/* ========== End project parallelograms ========== */
+
+/* Contact me parallelogram: blue top bar + royal blue body, wider */
+.portfolio-center-parallelogram--contact {
+  --contact-bar-height: clamp(3.6vh, 8vh, 7.2vh);
+  width: min(96vw, 700px);
+  background: #1e5bba;
+  border-color: #1b4586;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-center-parallelogram--contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  height: var(--contact-bar-height);
+  background: #214997;
+  border-radius: 6px 6px 0 0;
+}
+
+.portfolio-contact-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transform: skewX(5deg);
+  padding: calc(var(--contact-bar-height) + 1.2vh) max(2vw, 2.5vw) 1.2vh;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.portfolio-contact-form {
+  flex: 1;
+  position: relative;
+  display: grid;
+  grid-template-rows: 0.5fr 0.5fr 2fr;
+  gap: 1.2vh;
+  min-height: 0;
+}
+
+/* Parallelogram wrapper for each field - borders parallel to big parallelogram */
+.portfolio-contact-field {
+  transform: skewX(-5deg);
+  border: 3px solid #274e8a;
+  border-bottom: 5px solid #274e8a;
+  background: #376ec3;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* All fields aligned - same width and position */
+.portfolio-contact-field:nth-child(1),
+.portfolio-contact-field:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-contact-field:nth-child(1) {
+  transform: skewX(-5deg) translateX(1.6vh);
+}
+.portfolio-contact-field:nth-child(2) {
+  transform: skewX(-5deg) translateX(1vh);
+}
+
+.portfolio-contact-field:nth-child(3) {
+  transform: skewX(-5deg) translateX(-0.8vh);
+}
+
+.portfolio-contact-input,
+.portfolio-contact-textarea {
+  width: 100%;
+  padding: 1vh 1.4vw;
+  font-size: clamp(1.2vh, 2vh, 1.6vh);
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  color: #fff;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  transform: skewX(5deg);
+}
+
+.portfolio-contact-input:focus,
+.portfolio-contact-textarea:focus {
+  outline: none;
+}
+
+.portfolio-contact-field:focus-within {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.portfolio-contact-input::placeholder,
+.portfolio-contact-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.portfolio-contact-textarea {
+  min-height: 0;
+  height: 100%;
+  resize: none;
+  padding-top: 2vh;
+  padding-left: 1.5vw;
+}
+
+.portfolio-contact-submit-wrap {
+  position: absolute;
+  bottom: -1.2vh;
+  right: calc(-1 * max(2vw, 2.5vw));
+  min-width: 12vw;
+  overflow: visible;
+}
+
+.portfolio-contact-submit-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  clip-path: polygon(6% 100%, 0 8%, 100% 0, 100% 100%);
+  transform: translate(-0.4vw, 0.4vh);
+  z-index: 0;
+}
+
+.portfolio-contact-submit {
+  position: relative;
+  z-index: 1;
+  min-width: 12vw;
+  padding: 4vh 2.4vw;
+  padding-right: max(2vw, 2.5vw);
+  padding-bottom: 1.2vh;
+  font-size: 2.1vh;
+  font-weight: 500;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  color: #fff;
+  background: #10dc9c;
+  border: none;
+  clip-path: polygon(6% 100%, 0 8%, 100% 0, 100% 100%);
+  border-radius: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-contact-submit-text {
+  display: inline-block;
+  -webkit-text-stroke: 2px #000;
+  paint-order: stroke fill;
+  transform: translate(-0.7vh, -1vh);
+}
+
+.portfolio-contact-submit:hover {
+  filter: brightness(1.08);
+}
+
+.portfolio-contact-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: var(--contact-bar-height);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: clamp(20px, 3vh, 34px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.07em;
+  -webkit-text-stroke: 4px #000;
+  paint-order: stroke fill;
+  transform: skewX(5deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.portfolio-headshot {
+  width: 82cqmin;
+  height: 82cqmin;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: skewX(5deg) translateY(4%);
+}
+
+.portfolio-section {
+  padding: 3.2vh 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.portfolio-section h2 {
+  font-size: 2vh;
+  font-weight: 600;
+  margin-bottom: 1.2vh;
+  color: #cbd5e1;
+}
+
+.portfolio-section p {
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* Slightly smaller parallelograms + shorter top bar on mobile */
+@media (max-width: 850px) {
+  .portfolio {
+    --portfolio-top-bar-h: 4.5vh;
+  }
+
+  .portfolio-center-parallelogram {
+    width: min(72vw, 340px);
+  }
+
+  .portfolio-center-parallelogram--first,
+  .portfolio-center-parallelogram--contact {
+    width: min(84vw, 420px);
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project {
+    width: min(26vw, 150px);
+    /* height follows from aspect-ratio, so card shrinks proportionally */
+  }
+
+  /* Mobile: use container units so content scales with card */
+  .portfolio-parallelograms-track .parallelogram.project .top-bar,
+  .portfolio-parallelograms-track .parallelogram.project .project-title {
+    height: 14cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .bottom-bar {
+    height: 18cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .organizer-text {
+    top: 18cqh !important;
+    right: 8cqw !important;
+    font-size: 4.5cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .subtitle-text {
+    top: 24cqh !important;
+    right: 8cqw !important;
+    font-size: 3.5cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .title-image {
+    width: 85cqw !important;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .title-beaver {
+    width: 18cqw !important;
+    height: auto;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .title-logo {
+    width: 12cqw !important;
+    height: auto;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .title-controller {
+    width: 14cqw !important;
+    height: auto;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .title-text {
+    font-size: 5.5cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project#project5 .title-image {
+    width: 60cqw !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project#project7 .title-text {
+    font-size: 4cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project#project7 .title-logo {
+    width: 8cqw !important;
+    margin-left: 0 !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .image-carousel,
+  .portfolio-parallelograms-track .parallelogram.project .image-container {
+    width: 90cqw !important;
+    height: 55cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .spotify-embed {
+    width: 90cqw !important;
+    height: 50cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .project-content {
+    height: 18cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project#project6 .website-embed {
+    top: 14cqh !important;
+    bottom: 18cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project .project-link {
+    font-size: 4cqh !important;
+    padding: 1.5cqh 4cqw !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project#project6 .project-link {
+    font-size: 3.2cqh !important;
+    padding: 1cqh 3cqw !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project#project9 .top-bar,
+  .portfolio-parallelograms-track .parallelogram.project#project9 .bottom-bar {
+    height: 2cqh !important;
+  }
+
+  .portfolio-top-bar {
+    height: 4.5vh;
+    min-height: 40px;
+  }
+
+  .portfolio-bar-name {
+    font-size: max(18px, 2.6vh);
+  }
+
+  .portfolio-bar-parallelograms {
+    gap: max(1.6vw, 2.5vw);
+    margin-right: max(3px, 0.4vw);
+    transform: translateY(42%);
+  }
+
+  .portfolio-bar-icon-shape {
+    min-width: 52px;
+    width: max(68px, 8vw);
+    height: max(30px, 3.5vh);
+    padding-left: max(20px, 2.4vh);
+    font-size: max(9px, 2vh);
+  }
+
+  .portfolio-bar-icon-circle {
+    width: max(42px, 4.8vh);
+    height: max(42px, 4.8vh);
+  }
+
+  .portfolio-first-intro,
+  .portfolio-first-body {
+    font-size: clamp(10px, 3cqh, 20px);
+    line-height: 1.35;
+  }
+
+  .portfolio-first-list {
+    font-size: clamp(9px, 2.5cqh, 16px);
+    line-height: 1.4;
+  }
+
+  /* Gentler fold on mobile so the carousel doesn’t swing too far */
+  .portfolio-first-image-wrap {
+    perspective: none;
+  }
+
+  .portfolio-first-image--exit {
+    transform: none;
+    transform-origin: unset;
+    animation: portfolio-about-fade-out 0.5s ease-in-out forwards;
+  }
+
+  .portfolio-first-image--enter {
+    transform: none;
+    transform-origin: unset;
+    animation: portfolio-about-fade-in 0.5s ease-in-out forwards;
+  }
+}
+
+/* Even smaller project cards on very narrow phones */
+@media (max-width: 500px) {
+  .portfolio-parallelograms-track .parallelogram.project {
+    width: min(32vw, 130px);
+  }
+}
+
+/* Use fade instead of 3D fold on any viewport where fold would sweep too far */
+@media (max-width: 1024px) {
+  .portfolio-first-image-wrap {
+    perspective: none;
+  }
+
+  .portfolio-first-image--exit {
+    transform: none;
+    transform-origin: unset;
+    animation: portfolio-about-fade-out 0.5s ease-in-out forwards;
+  }
+
+  .portfolio-first-image--enter {
+    transform: none;
+    transform-origin: unset;
+    animation: portfolio-about-fade-in 0.5s ease-in-out forwards;
+  }
+}
+
+@keyframes portfolio-about-fade-out {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: none; }
+}
+
+@keyframes portfolio-about-fade-in {
+  from { opacity: 0; transform: none; }
+  to { opacity: 1; transform: none; }
+}

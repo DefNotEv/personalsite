@@ -1,0 +1,247 @@
+.phone-view {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f1a 100%);
+  z-index: 50;
+}
+
+/* Light theme overlay — crossfade so the background fades instead of snapping */
+.phone-view::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, #e8e8ec 0%, #d4d4dc 100%);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+body.theme-light .phone-view::before {
+  opacity: 1;
+}
+
+.phone {
+  position: relative;
+  z-index: 1;
+  /* Smaller on small screens, still large on big displays */
+  width: clamp(220px, min(26vw, 60vh), 520px);
+  aspect-ratio: 280 / 568;
+  background: #111;
+  border-radius: clamp(24px, 6.5vw, 36px);
+  box-shadow:
+    0 0 0 3px #333,
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36%;
+  height: 4.2%;
+  min-width: 60px;
+  min-height: 16px;
+  background: #111;
+  border-radius: 0 0 16px 16px;
+  z-index: 2;
+  transition: background 0.5s ease;
+}
+
+.phone-screen {
+  position: absolute;
+  inset: 2.1% 2.9% 2.1% 2.9%;
+  border-radius: clamp(20px, 5vw, 28px);
+  overflow: hidden;
+  background: #1a1a2e;
+  transition: background 0.5s ease;
+}
+
+.phone-wallpaper {
+  position: absolute;
+  inset: 0;
+  background: url('/images/phone.jpg') center / cover no-repeat;
+}
+
+.phone-time {
+  position: absolute;
+  top: 3%;
+  left: 8%;
+  z-index: 1;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(11px, 3.2vw, 14px);
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.02em;
+}
+
+/* Keep phone screen time text white in all themes */
+body.theme-light .phone-time,
+body:not(.theme-dark) .phone-time {
+  color: #fff;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.phone-status {
+  position: absolute;
+  top: 3%;
+  right: 8%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.phone-status-icon {
+  width: clamp(10px, 2.8vw, 13px);
+  height: clamp(10px, 2.8vw, 13px);
+  color: #fff;
+}
+
+.phone-battery {
+  margin-left: 1px;
+}
+
+/* Keep status icons white in all themes */
+body.theme-light .phone-status .phone-status-icon,
+body:not(.theme-dark) .phone-status .phone-status-icon {
+  color: #fff;
+}
+
+.phone-home-bar {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 43%;
+  height: 0.7%;
+  min-width: 80px;
+  min-height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  transition: background 0.5s ease;
+}
+
+@media (prefers-color-scheme: light) {
+  body:not(.theme-dark) .phone-view {
+    background: radial-gradient(ellipse at center, #e8e8ec 0%, #d4d4dc 100%);
+  }
+
+  body:not(.theme-dark) .phone {
+    background: #2d2d2d;
+    box-shadow:
+      0 0 0 3px #555,
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  body:not(.theme-dark) .phone-notch {
+    background: #2d2d2d;
+  }
+
+  body:not(.theme-dark) .phone-screen {
+    background: #e8ecf0;
+  }
+
+  body:not(.theme-dark) .phone-wallpaper {
+    background: url('/images/phone.jpg') center / cover no-repeat;
+  }
+
+  body:not(.theme-dark) .phone-home-bar {
+    background: rgba(0, 0, 0, 0.25);
+  }
+}
+
+body.theme-light .phone {
+  background: #2d2d2d;
+  box-shadow:
+    0 0 0 3px #555,
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+body.theme-light .phone-notch {
+  background: #2d2d2d;
+}
+
+body.theme-light .phone-screen {
+  background: #e8ecf0;
+}
+
+body.theme-light .phone-wallpaper {
+  background: url('/images/phone.jpg') center / cover no-repeat;
+}
+
+body.theme-light .phone-home-bar {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+body.theme-dark .phone {
+  background: #111;
+  box-shadow:
+    0 0 0 3px #333,
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+body.theme-dark .phone-notch {
+  background: #111;
+}
+
+body.theme-dark .phone-screen {
+  background: #1a1a2e;
+}
+
+body.theme-dark .phone-wallpaper {
+  background: url('/images/phone.jpg') center / cover no-repeat;
+}
+
+body.theme-dark .phone-home-bar {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.app-icon {
+  position: absolute;
+  top: 12%;
+  left: 8%;
+  width: 26%;
+  height: 13%;
+  min-width: 56px;
+  min-height: 56px;
+  max-width: 88px;
+  max-height: 88px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #6366f1 0%, #4f46e5 100%);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.5);
+}
+
+.app-icon:active {
+  transform: scale(0.98);
+}
+
+.app-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  pointer-events: none;
+}

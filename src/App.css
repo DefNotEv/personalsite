@@ -1,0 +1,159 @@
+/* Viewport warning — shown when aspect ratio is 1.25:1 or smaller */
+.viewport-warning {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0f0f12;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-out;
+}
+
+.viewport-warning.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.viewport-warning-title {
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.viewport-warning-subtitle {
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  color: #94a3b8;
+  margin: 0;
+}
+
+.portfolio-wrap {
+  position: relative;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.portfolio-wrap.visible {
+  opacity: 1;
+}
+
+.portfolio-wrap.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition-duration: 0.45s;
+}
+
+/* App click: fade to black then name reveal — always 100% black, no light mode */
+html.app-reveal-active,
+body.app-reveal-active {
+  background: #000 !important;
+}
+
+.app-reveal {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.app-reveal.visible {
+  opacity: 1;
+}
+
+.app-reveal.fade-out {
+  opacity: 0;
+}
+
+.app-reveal-name {
+  font-family: 'Acropolis', sans-serif;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transform: translateY(14px);
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 9px rgba(255, 255, 255, 0.6),
+    0 0 17px rgba(255, 255, 255, 0.4);
+  transition:
+    opacity 0.34s ease-out 1.2s,
+    transform 0.34s ease-out 1.2s;
+  max-width: 90vw;
+  line-height: 1.2;
+}
+
+.app-reveal-name span {
+  display: block;
+}
+
+.app-reveal-name span:nth-child(1) {
+  font-size: 1.56em;
+}
+
+.app-reveal-name span:nth-child(2) {
+  font-size: 1.45em;
+}
+
+.app-reveal-name span:nth-child(3) {
+  font-size: 1.4em;
+}
+
+.app-reveal.visible .app-reveal-name {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.app-reveal.fade-out .app-reveal-name {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
+.app-reveal-disclaimer {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translate(-50%, 14px);
+  max-width: 90vw;
+  font-family: 'LilitaOne', system-ui, sans-serif;
+  font-size: 0.55rem;
+  line-height: 1.4;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition:
+    opacity 0.34s ease-out 1.2s,
+    transform 0.34s ease-out 1.2s;
+}
+
+.app-reveal.visible .app-reveal-disclaimer {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.app-reveal.fade-out .app-reveal-disclaimer {
+  opacity: 0;
+  transform: translate(-50%, -6px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
