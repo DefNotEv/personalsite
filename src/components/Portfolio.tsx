@@ -9,7 +9,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 const ABOUT_IMAGES = ['/images/about1.png', '/images/about2.png', '/images/about3.png', '/images/about4.png']
 
 function daysSinceNov2(): number {
-  const start = new Date(2025, 10, 2)
+  const start = new Date(2025, 7, 2)
   const now = new Date()
   return Math.max(0, Math.floor((now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)))
 }
