@@ -15,6 +15,12 @@ function daysSinceJan10(): number {
   return Math.max(0, Math.floor((now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)))
 }
 
+function daysSinceNov2(): number {
+  const start = new Date(2025, 7, 2)
+  const now = new Date()
+  return Math.max(0, Math.floor((now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)))
+}
+
 type PortfolioProps = {
   onBack?: () => void
 }
@@ -201,13 +207,13 @@ export default function Portfolio({ onBack }: PortfolioProps) {
                   I'm Evelyn Hannah Z.S. Wong — but you can call me Evelyn! I'm an 18-year-old student based between Toronto, Canada and Indianapolis, U.S.A.
                 </p>
                 <p className="portfolio-first-body">
-                  I love building, failing, and trying again. I love to try everything from robotics to snowboard racing— but right now, the main things I'm focused on are:
+                  I love building, failing, and trying again. I love to try everything from robotics to snowboard racing, but right now, the main things I'm focused on are:
                 </p>
                 <ul className="portfolio-first-list">
                   <li>Completing my degree in Motorsports Engineering @ Purdue University</li>
                   <li>Building Downtown Indy Rally Team (DIRT)</li>
                   <li>Training for the Purdue 2026 5K Challenge</li>
-                  <li>Staying sober from Monster for {daysSinceJan10()} days</li>
+                  <li>And, ironically, staying away from Brawl Stars for {daysSinceNov2()} days (this is my proudest achievement)</li>
                 </ul>
               </div>
               <div className="portfolio-first-image-wrap">
@@ -232,6 +238,7 @@ export default function Portfolio({ onBack }: PortfolioProps) {
               <div className="bottom-bar" aria-hidden />
               <div className="project-title">
                 <img src="/images/rallylogo.png" alt="DIRT logo" className="title-logo" />
+                <p className="dirt-title-text">DIRT</p>
               </div>
               <p className="organizer-text">FOUNDER &amp; SECRETARY</p>
               <p className="subtitle-text">downtown indy rally team!</p>
