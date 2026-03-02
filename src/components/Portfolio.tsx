@@ -201,11 +201,12 @@ export default function Portfolio({ onBack }: PortfolioProps) {
                   I'm Evelyn Hannah Z.S. Wong — but you can call me Evelyn! I'm an 18-year-old student based between Toronto, Canada and Indianapolis, U.S.A.
                 </p>
                 <p className="portfolio-first-body">
-                  I love building, failing, and trying again. I'm try almost everything from robotics to snowboard racing— but right now, the main things I'm focused on are:
+                  I love building, failing, and trying again. I try almost everything from robotics to snowboard racing— but right now, the main things I'm focused on are:
                 </p>
                 <ul className="portfolio-first-list">
                   <li>Completing my degree in Motorsports Engineering @ Purdue University</li>
                   <li>Building Downtown Indy Rally Team (DIRT)</li>
+                  <li>Training for the Purdue 2026 5K Challenge</li>
                   <li>Staying sober from Monster for {daysSinceJan10()} days</li>
                 </ul>
               </div>
