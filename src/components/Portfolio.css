@@ -427,7 +427,7 @@
   margin: 0.4em 0 0;
   padding-left: 1.2em;
   font-family: 'LilitaOne', system-ui, sans-serif;
-  font-size: clamp(10px, 2.6cqh, 22px);
+  font-size: clamp(11px, 3.2cqh, 28px);
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.95);
   font-weight: 400;
@@ -2672,7 +2672,7 @@
   }
 
   .portfolio-first-list {
-    font-size: clamp(9px, 2.5cqh, 16px);
+    font-size: clamp(10px, 3cqh, 20px);
     line-height: 1.4;
   }
 
