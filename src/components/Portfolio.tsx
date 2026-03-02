@@ -8,13 +8,6 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const ABOUT_IMAGES = ['/images/about1.png', '/images/about2.png', '/images/about3.png', '/images/about4.png']
 
-function daysSinceJan10(): number {
-  const year = new Date().getFullYear()
-  const start = new Date(year, 0, 10)
-  const now = new Date()
-  return Math.max(0, Math.floor((now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)))
-}
-
 function daysSinceNov2(): number {
   const start = new Date(2025, 10, 2)
   const now = new Date()
@@ -213,7 +206,6 @@ export default function Portfolio({ onBack }: PortfolioProps) {
                   <li>Completing my degree in Motorsports Engineering @ Purdue University</li>
                   <li>Building Downtown Indy Rally Team (DIRT)</li>
                   <li>Training for the Purdue 2026 5K Challenge</li>
-                  <li>Staying sober from Monster for {daysSinceJan10()} days</li>
                   <li>And, ironically, staying away from Brawl Stars for {daysSinceNov2()} days (this is my proudest achievement)</li>
                 </ul>
               </div>
