@@ -1924,6 +1924,156 @@
 .parallelogram.project#project9 .carousel-image:nth-child(6) { animation-delay: 20s; }
 .parallelogram.project#project9 .carousel-image:nth-child(7) { animation-delay: 24s; }
 
+/* Project 10: DIRT */
+.parallelogram.project#project10 {
+  background: linear-gradient(135deg,
+    #000000 0%,
+    #111111 25%,
+    #222222 50%,
+    #111111 75%,
+    #000000 100%
+  );
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  border: 3px solid #000;
+  border-bottom: 6px solid #000;
+  overflow: hidden;
+}
+
+.parallelogram.project#project10 .top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #c99a00; /* gold */
+  z-index: 1;
+}
+
+.parallelogram.project#project10 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #c99a00; /* gold */
+  z-index: 2;
+}
+
+.parallelogram.project#project10 .project-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  gap: 0;
+  z-index: 2;
+}
+
+.parallelogram.project#project10 .title-logo {
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6));
+}
+
+.parallelogram.project#project10 .title-text {
+  margin: 0;
+  transform: skewX(5deg);
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-shadow:
+    -2px -2px 0 #ffd700,
+    2px -2px 0 #ffd700,
+    -2px 2px 0 #ffd700,
+    2px 2px 0 #ffd700;
+}
+
+.parallelogram.project#project10 .organizer-text {
+  position: absolute;
+  top: 100px;
+  right: 30px;
+  color: #f9f5d7;
+  font-size: 20px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project10 .subtitle-text {
+  position: absolute;
+  top: 130px;
+  right: 30px;
+  color: #f4e3a3;
+  font-size: 16px;
+  transform: skewX(5deg);
+  z-index: 2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.parallelogram.project#project10 .image-container {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(65%, 180px) !important;
+  height: min(42vh, 220px) !important;
+  z-index: 0;
+}
+
+.parallelogram.project#project10 .rally-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: skewX(5deg);
+  filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.7));
+  animation: portfolio-project-pulse 2s ease-in-out infinite;
+}
+
+.parallelogram.project#project10 .project-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallelogram.project#project10 .project-link {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: rgba(249, 229, 115, 0.9);
+  transform: skewX(5deg);
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.parallelogram.project#project10 .project-link:hover {
+  background-color: #000;
+  color: #f9e573;
+  box-shadow: 0 0 20px rgba(249, 229, 115, 0.7);
+}
+
 /* General project carousel and keyframes */
 .parallelogram.project .image-carousel {
   position: absolute;
@@ -2102,15 +2252,6 @@
 .portfolio-parallelograms-track .parallelogram.project .image-container {
   width: min(75%, 230px) !important;
   height: min(50vh, 330px) !important;
-}
-
-.portfolio-parallelograms-track .parallelogram.project .spotify-embed {
-  width: min(75%, 230px) !important;
-  height: min(45vh, 330px) !important;
-}
-
-.portfolio-parallelograms-track .parallelogram.project .spotify-embed iframe {
-  height: 100%;
 }
 
 .portfolio-parallelograms-track .parallelogram.project .project-content {
@@ -2460,6 +2601,11 @@
   .portfolio-parallelograms-track .parallelogram.project .image-container {
     width: 90cqw !important;
     height: 55cqh !important;
+  }
+
+  .portfolio-parallelograms-track .parallelogram.project#project10 .image-container {
+    width: 60cqw !important;
+    height: 45cqh !important;
   }
 
   .portfolio-parallelograms-track .parallelogram.project .spotify-embed {

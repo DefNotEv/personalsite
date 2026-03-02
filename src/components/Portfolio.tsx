@@ -201,7 +201,7 @@ export default function Portfolio({ onBack }: PortfolioProps) {
                   I'm Evelyn Hannah Z.S. Wong — but you can call me Evelyn! I'm an 18-year-old student based between Toronto, Canada and Indianapolis, U.S.A.
                 </p>
                 <p className="portfolio-first-body">
-                  I love building, failing, and trying again. I try almost everything from robotics to snowboard racing— but right now, the main things I'm focused on are:
+                  I love building, failing, and trying again. I love to try everything from robotics to snowboard racing— but right now, the main things I'm focused on are:
                 </p>
                 <ul className="portfolio-first-list">
                   <li>Completing my degree in Motorsports Engineering @ Purdue University</li>
@@ -226,6 +226,30 @@ export default function Portfolio({ onBack }: PortfolioProps) {
 
           {/* Project parallelograms — image paths and content from legacy HTML */}
           <div id="projects" className="parallelogram">
+            {/* Project 10: DIRT */}
+            <div id="project10" className="parallelogram project">
+              <div className="top-bar" aria-hidden />
+              <div className="bottom-bar" aria-hidden />
+              <div className="project-title">
+                <img src="/images/rallylogo.png" alt="DIRT logo" className="title-logo" />
+              </div>
+              <p className="organizer-text">FOUNDER &amp; SECRETARY</p>
+              <p className="subtitle-text">downtown indy rally team!</p>
+              <div className="image-container">
+                <img src="/images/rallycar.png" alt="DIRT rally car" className="rally-image" />
+              </div>
+              <div className="project-content">
+                <a
+                  href="https://www.instagram.com/dirtpurdue"
+                  className="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  VIEW TEAM
+                </a>
+              </div>
+            </div>
+
             {/* Project 1: Apocalypse */}
             <div id="project1" className="parallelogram project">
               <div className="top-bar" aria-hidden />
@@ -315,7 +339,7 @@ export default function Portfolio({ onBack }: PortfolioProps) {
               <div className="project-title">
                 <p className="title-text">VRC TEAM 1165A</p>
               </div>
-              <p className="organizer-text">TEAM <span style={{ textDecoration: 'line-through', textDecorationThickness: 5, textDecorationColor: '#ffffff' }}>MANAGER</span> MOM</p>
+              <p className="organizer-text">TEAM MANAGER</p>
               <p className="subtitle-text">worlds qualifier 2025!</p>
               <div className="image-container">
                 <img src="/images/vrcbot.png" alt="VRC Bot" className="vrc-image" />
